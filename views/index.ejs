@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 text-center">
+				<form action="/search" method="get" id="search-form" class="form-inline">
+                    <input type="text" placeholder="Movie Title" name="movieSearch" />
+                    <input type="submit" class="btn btn-primary">
+                </form>
+				<h1> List of current movies </h1>
+			</div>
+			<div class="col-sm-12">
+				<!-- < % means to RUN the code -->
+				<!-- < %= means to PRINT the code -->
+				<% for(let i = 0; i < parsedData.length; i++){ %>
+					<div class="col-sm-3 col-sm-offset-3">
+						<h1><%= parsedData[i].original_title %></h1>
+						<p><%= parsedData[i].release_date %></p>
+						<p><%= parsedData[i].overview %></p>
+					</div>
+					<div class="col-sm-4">
+						<a href="/movie/=<%=parsedData[i].id%>">
+							<img src="<%= imageBaseUrl + parsedData[i].poster_path %>" />
+						</a>
+					</div>
+				<% } %>
+			</div>			
+		</div>
+	</div>
+
+</body>
+</html>
+
+
+<!-- use <% %> when writing JS within this HTML -->

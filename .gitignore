@@ -1,0 +1,4 @@
+// ignore everything in the config folder
+config
+//ignore ALL node modules. if someone wants them, run npm install
+node_modules
